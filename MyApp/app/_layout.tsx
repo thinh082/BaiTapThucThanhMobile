@@ -1,24 +1,24 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import ManHinhChinh from '@/screen/TruyenCuoi/ManHinhChinh';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import DanhSachTruyenCuoi from '@/screen/TruyenCuoi/DanhSachTruyenCuoi';
+import ChiTietTruyen from '@/screen/TruyenCuoi/ChiTietTruyen';
+import ConTho from '@/screen/TruyenCuoi/ConTho';
+import BaiTap1 from '@/screen/baitap/baitap1';
+import BaiTap2 from '@/screen/baitap/baitap2';
+import GiaoDienDangNhap from '@/screen/lab2/giaodiendangnhap';
 
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+    <SafeAreaView style={{ flex: 1 }}>
+      <GiaoDienDangNhap></GiaoDienDangNhap>
+    </SafeAreaView>
+  </SafeAreaProvider>
   );
 }
